@@ -1,0 +1,20 @@
+
+  <%- include('partials/head')  %>
+<div>
+    <%- include('partials/inputs')  %>
+<div>
+   
+    <br>
+    <form action="/myForm" method="POST" enctype="multipart/form-data">
+        <input type="file" value="valuee" name="picture">
+        <input type="text" placeholder=" First Name" name="FirstName">
+        <input type="text" placeholder=" Last Name" name="LastName">
+        <input type="text" placeholder=" Email" name="Email">
+        <input type="text" placeholder=" Contact Number" name="ContactNumber">
+        <button>Submit</button>
+    </form>
+  
+</div>
+</div>
+
+<%- include('partials/footer')  %>

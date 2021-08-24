@@ -1,0 +1,31 @@
+<%- include('partials/head')  %>
+<div>
+  <%- include('partials/inputs')  %>
+
+<% 
+let Fname =''
+let Lname =''
+if(saveBox.length>0){%>
+   
+ <% saveBox.forEach((std,i) => {%>
+    <p>
+     <%= i +1 %>.    <%=std.FirstName%> <%=std.LastName%>  <img src="<%std.picture%>" alt="pic"> <a href="/myForm:<%=i%>"  type="button" > delete</a>
+    </p>
+    <% function deleteIt(val){%>
+        <% console.log(saveBox)%>
+       <% saveBox.filter((info,i)=> i !== val) %>
+      
+    <%}%>
+   
+<%})%>
+<%} else{ %>
+   
+    No contact
+
+<% } %>
+ 
+
+</div>
+<%- include('partials/footer')  %>
+
+ 
