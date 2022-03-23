@@ -1,10 +1,10 @@
 <template>
     <div>
-    <User/>
+    <Navbar/>
     </div>
 </template>
 <script>
-  import User from "./navbar.vue";
+  import Navbar from "./navbar.vue";
   import Socketio from "socket.io-client"
 export default  {
     data() {
@@ -16,7 +16,7 @@ export default  {
      }   
     },
     components:{
-        User
+        Navbar
     },
     mounted(){ 
       let sender = sessionStorage.getItem('loggedIn')

@@ -114,6 +114,7 @@ const myUser=[]
 app.post('/submitForm',async (req,res)=>{
 let {body} = req
 const a =  await User.find({email:body.Email})
+console.log(a)
 
 if (a.length > 0){
 res.send('email already exist')
@@ -165,7 +166,6 @@ app.get('/chat/:id',async (req,res)=>{
 app.post('/message',async (req,res)=>{
 let {body}= req
 const user = await User.find({email:body.sender})
-console.log(user)
 Message.create({message:body.message, reciever:body.reciever,sender:user[0],whosend:body.sender},(err,user)=>{
     console.log(err)
     res.send('success')
@@ -174,8 +174,20 @@ Message.create({message:body.message, reciever:body.reciever,sender:user[0],whos
 
 })
 
+app.post('/finduser',async (req,res)=>{
+    let {body}=req
+    const user = await User.find({email:body.finduserEmail})
+    let myres ={
+        email:user[0].email,
+        name:user[0].firstName,
+        username:user[0].lastName
+    }
+    res.send(myres)
 
-io.on('connection', (socket) =>{
+})
+
+
+io.on('connection', (socket) =>{    
 let reIt;
  
 
